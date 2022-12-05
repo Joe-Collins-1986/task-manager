@@ -16,14 +16,12 @@
     <header>
         <nav class="light-blue darken-1">
             <div class="nav-wrapper">
-              <a href="{{ url_for('home') }}" class="brand-logo">Task Manager</a>
-              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-              <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('home') }}">Home</a></li>
-                <li><a href="">New Task</a></li>
-                <li><a href="">Catagories</a></li>
-
-
+                <a href="{{ url_for('home') }}" class="brand-logo">Task Manager</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <li><a href="">New Task</a></li>
+                    <li><a href="">Catagories</a></li>
               </ul>
             </div>
           </nav>
@@ -51,8 +49,7 @@
       </footer>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
