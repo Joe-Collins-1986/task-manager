@@ -74,6 +74,7 @@ def edit_task(task_id):
         return redirect(url_for("home"))
     return render_template("edit_task.html", task=task, catagories=catagories)
 
+
 @app.route("/delete_task/<int:task_id>")
 def delete_task(task_id):
     task = Task.query.get_or_404(task_id)
