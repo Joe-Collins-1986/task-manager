@@ -10,7 +10,8 @@ def home():
 
 @app.route("/catagories")
 def catagories():
-    return render_template("catagories.html")
+    catagories = list(Catagory.query.order_by(Catagory.catagory_name).all())
+    return render_template("catagories.html", catagories=catagories)
 
 
 @app.route("/add_catagory", methods=["GET", "POST"])
