@@ -58,3 +58,18 @@ def add_task():
         db.session.commit()
         return redirect(url_for("home"))
     return render_template("add_task.html", catagories=catagories)
+
+
+@app.route("/edit_task/<int:task_id>", methods=["GET", "POST"])
+def edit_task(task_id):
+    task = Task.query.get_or_404(task_id)
+    catagories = list(Catagory.query.order_by(Catagory.catagory_name).all())
+    if request.method == "POST":
+        task.task_name = request.form.get("task_name")
+        task.task_description = request.form.get("task_description")
+        task.is_urgent = bool(True if request.form.get("is_urgent") else False)
+        task.due_date = request.form.get("due_date")
+        task.catagory_id = request.form.get("catagory_id")
+        db.session.commit()
+        return redirect(url_for("home"))
+    return render_template("edit_task.html", task=task, catagories=catagories)
