@@ -22,3 +22,21 @@ def add_catagory():
         db.session.commit()
         return redirect(url_for("catagories"))
     return render_template("add_catagory.html")
+
+
+@app.route("/edit_catagory/<int:catagory_id>", methods=["GET", "POST"])
+def edit_catagory(catagory_id):
+    catagory = Catagory.query.get_or_404(catagory_id)
+    if request.method == "POST":
+        catagory.catagory_name = request.form.get("catagory_name")
+        db.session.commit()
+        return redirect(url_for("catagories"))
+    return render_template("edit_catagory.html", catagory=catagory)
+
+
+@app.route("/delete_catagory/<int:catagory_id>")
+def delete_catagory(catagory_id):
+    catagory = Catagory.query.get_or_404(catagory_id)
+    db.session.delete(catagory)
+    db.session.commit()
+    return redirect(url_for("catagories"))
